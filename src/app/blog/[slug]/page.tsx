@@ -77,7 +77,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
             <span className="flex items-center gap-1.5"><User className="w-4 h-4" />{post.author}</span>
             <span className="flex items-center gap-1.5"><Calendar className="w-4 h-4" />{new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
-            <span className="flex items-center gap-1.5"><Clock className="w-4 h-4" />{post.readTime}</span>
+            <span className="flex items-center gap-1.5"><Clock className="w-4 h-4" />{post.readTime} min read</span>
           </div>
         </header>
 

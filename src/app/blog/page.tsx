@@ -55,7 +55,7 @@ export default function BlogPage() {
                   <div className="flex items-center gap-4 text-sm text-gray-400">
                     <span className="flex items-center gap-1.5"><User className="w-3.5 h-3.5" />{featured.author}</span>
                     <span className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" />{new Date(featured.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
-                    <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" />{featured.readTime}</span>
+                    <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" />{featured.readTime} min read</span>
                   </div>
                 </div>
               </div>
@@ -80,7 +80,7 @@ export default function BlogPage() {
                     <span>·</span>
                     <span>{new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
                     <span>·</span>
-                    <span>{post.readTime}</span>
+                    <span>{post.readTime} min read</span>
                   </div>
                 </div>
               </article>

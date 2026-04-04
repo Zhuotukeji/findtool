@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import ToolCard from '@/components/tools/ToolCard';
+import CategoryIcon from '@/components/tools/CategoryIcon';
 import { categories, tools } from '@/data';
 import { JsonLdBreadcrumb } from '@/components/seo/JsonLd';
 
@@ -45,7 +46,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
       <div className="bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="flex items-center gap-4 mb-4">
-            <span className="text-4xl">{category.icon}</span>
+            <CategoryIcon icon={category.icon} className="w-8 h-8" />
             <div>
               <h1 className="text-3xl md:text-4xl font-bold text-gray-900">{category.name}</h1>
               <p className="text-gray-500 mt-1">{categoryTools.length} tools available</p>

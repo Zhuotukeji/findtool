@@ -4,6 +4,7 @@ import { Star, Check, X, ArrowRight } from 'lucide-react';
 import { tools, categories } from '@/data';
 import { JsonLdBreadcrumb } from '@/components/seo/JsonLd';
 import ToolLogo from '@/components/tools/ToolLogo';
+import CategoryIcon from '@/components/tools/CategoryIcon';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://toolfinder.vercel.app';
 
@@ -51,7 +52,7 @@ export default function ComparePage() {
           <div key={category.slug} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
             <div className="p-6 border-b border-gray-100 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <span className="text-2xl">{category.icon}</span>
+                <CategoryIcon icon={category.icon} className="w-6 h-6" />
                 <h2 className="text-xl font-bold text-gray-900">{category.name}</h2>
               </div>
               <Link href={`/category/${category.slug}`} className="text-sm text-violet-600 hover:underline flex items-center gap-1">
