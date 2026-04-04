@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import { Star, Check, X, ArrowRight } from 'lucide-react';
 import { tools, categories } from '@/data';
 import { JsonLdBreadcrumb } from '@/components/seo/JsonLd';
+import ToolLogo from '@/components/tools/ToolLogo';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://toolfinder.vercel.app';
 
@@ -67,7 +68,7 @@ export default function ComparePage() {
                     {catTools.map((tool) => (
                       <th key={tool.slug} className="text-center p-4">
                         <Link href={`/tool/${tool.slug}`} className="inline-flex flex-col items-center gap-2 hover:text-violet-600 transition-colors">
-                          <span className="text-2xl">{tool.logo || '🤖'}</span>
+                          <ToolLogo name={tool.name} logo={tool.logo} size="md" />
                           <span className="text-sm font-bold text-gray-900">{tool.name}</span>
                         </Link>
                       </th>

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Star, ExternalLink, Check, ArrowLeft, Globe, Calendar, Tag } from 'lucide-react';
 import { tools, categories } from '@/data';
 import { JsonLdSoftwareApp, JsonLdBreadcrumb } from '@/components/seo/JsonLd';
+import ToolLogo from '@/components/tools/ToolLogo';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://toolfinder.vercel.app';
 
@@ -81,9 +82,7 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <div className="flex flex-col md:flex-row gap-8">
             <div className="flex-shrink-0">
-              <div className="w-20 h-20 bg-gradient-to-br from-violet-100 to-indigo-100 rounded-2xl flex items-center justify-center text-3xl shadow-sm">
-                {tool.logo || '🤖'}
-              </div>
+              <ToolLogo name={tool.name} logo={tool.logo} size="lg" className="shadow-sm" />
             </div>
             <div className="flex-1">
               <div className="flex flex-wrap items-start justify-between gap-4">
@@ -244,9 +243,7 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                 <div className="space-y-3">
                   {relatedTools.map((rt) => (
                     <Link key={rt.slug} href={`/tool/${rt.slug}`} className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors group">
-                      <div className="w-10 h-10 bg-gradient-to-br from-violet-100 to-indigo-100 rounded-lg flex items-center justify-center text-lg flex-shrink-0">
-                        {rt.logo || '🤖'}
-                      </div>
+                      <ToolLogo name={rt.name} logo={rt.logo} size="sm" />
                       <div className="min-w-0">
                         <p className="text-sm font-medium text-gray-900 group-hover:text-violet-600 transition-colors">{rt.name}</p>
                         <div className="flex items-center gap-1">
