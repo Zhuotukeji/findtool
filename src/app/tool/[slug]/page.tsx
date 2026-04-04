@@ -11,8 +11,9 @@ export function generateStaticParams() {
   return tools.map((tool) => ({ slug: tool.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const tool = tools.find((t) => t.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const tool = tools.find((t) => t.slug === slug);
   if (!tool) return {};
   const category = categories.find((c) => c.slug === tool.category);
   return {
@@ -31,8 +32,9 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   };
 }
 
-export default function ToolPage({ params }: { params: { slug: string } }) {
-  const tool = tools.find((t) => t.slug === params.slug);
+export default async function ToolPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const tool = tools.find((t) => t.slug === slug);
   if (!tool) notFound();
 
   const category = categories.find((c) => c.slug === tool.category);

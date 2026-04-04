@@ -9,8 +9,9 @@ export function generateStaticParams() {
   return categories.map((cat) => ({ slug: cat.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const category = categories.find((c) => c.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const category = categories.find((c) => c.slug === slug);
   if (!category) return {};
   return {
     title: `Best ${category.name} AI Tools ${new Date().getFullYear()} | ToolFinder`,
@@ -26,11 +27,12 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   };
 }
 
-export default function CategoryPage({ params }: { params: { slug: string } }) {
-  const category = categories.find((c) => c.slug === params.slug);
+export default async function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const category = categories.find((c) => c.slug === slug);
   if (!category) notFound();
 
-  const categoryTools = tools.filter((t) => t.category === params.slug);
+  const categoryTools = tools.filter((t) => t.category === slug);
 
   return (
     <div className="min-h-screen bg-gray-50/50">
