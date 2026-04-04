@@ -47,7 +47,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
         category={category?.name}
         rating={tool.rating}
         ratingCount={tool.reviewCount}
-        pricing={tool.pricing}
+        pricing={tool.pricing.model}
         image={tool.logo}
       />
       <JsonLdBreadcrumb
