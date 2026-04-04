@@ -46,7 +46,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
         url={`${siteUrl}/tool/${tool.slug}`}
         category={category?.name}
         rating={tool.rating}
-        ratingCount={tool.reviews}
+        ratingCount={tool.reviewCount}
         pricing={tool.pricing}
         image={tool.logo}
       />
