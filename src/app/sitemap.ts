@@ -1,8 +1,8 @@
 import { MetadataRoute } from 'next';
-import { tools, categories } from '@/data';
+import { tools, categories, blogPosts } from '@/data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://toolfinder.vercel.app';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.614sf.com';
 
   const toolUrls = tools.map((tool) => ({
     url: `${baseUrl}/tool/${tool.slug}`,
@@ -16,6 +16,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
     priority: 0.7,
+  }));
+
+  const blogUrls = blogPosts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.date),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
   }));
 
   return [
@@ -51,5 +58,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...toolUrls,
     ...categoryUrls,
+    ...blogUrls,
   ];
 }
