@@ -1,4 +1,5 @@
 import { Tool, Category, BlogPost } from '@/types';
+import { blogContent } from './blog-content';
 
 // ============ CATEGORIES DATA ============
 export const categories: Category[] = [
@@ -1396,6 +1397,13 @@ export const blogPosts: BlogPost[] = [
   },
 ];
 
+// Apply blog content to blog posts
+blogPosts.forEach(post => {
+  if (blogContent[post.slug]) {
+    post.content = blogContent[post.slug];
+  }
+});
+
 // ============ HELPER FUNCTIONS ============
 export function getToolBySlug(slug: string): Tool | undefined {
   return tools.find(t => t.slug === slug);
@@ -1436,6 +1444,10 @@ export function searchTools(query: string, filters?: { category?: string; pricin
   }
   
   return results;
+}
+
+export function getBlogPostBySlug(slug: string): BlogPost | undefined {
+  return blogPosts.find(p => p.slug === slug);
 }
 
 export function getRelatedTools(tool: Tool, limit = 4): Tool[] {
