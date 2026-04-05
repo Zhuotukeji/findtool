@@ -1339,6 +1339,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Guides',
     tags: ['best of', 'guide', 'AI tools', '2026'],
     readTime: 12,
+    emoji: '🚀',
   },
   {
     slug: 'chatgpt-vs-claude-vs-gemini',
@@ -1350,6 +1351,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Comparisons',
     tags: ['comparison', 'chatbots', 'ChatGPT', 'Claude', 'Gemini'],
     readTime: 10,
+    emoji: '🤖',
   },
   {
     slug: 'ai-coding-tools-guide',
@@ -1361,6 +1363,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Guides',
     tags: ['coding', 'development', 'guide', 'Copilot', 'Cursor'],
     readTime: 15,
+    emoji: '💻',
   },
   {
     slug: 'free-ai-tools',
@@ -1372,6 +1375,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Lists',
     tags: ['free', 'tools', 'guide', 'budget'],
     readTime: 8,
+    emoji: '🎁',
   },
   {
     slug: 'ai-image-generators-compared',
@@ -1383,6 +1387,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Comparisons',
     tags: ['image generation', 'comparison', 'Midjourney', 'DALL-E'],
     readTime: 11,
+    emoji: '🎨',
   },
   {
     slug: 'ai-for-small-business',
@@ -1394,6 +1399,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Business',
     tags: ['business', 'guide', 'automation', 'productivity'],
     readTime: 9,
+    emoji: '💼',
   },
   {
     slug: 'prompt-engineering-guide',
@@ -1405,6 +1411,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Guides',
     tags: ['prompt engineering', 'guide', 'ChatGPT', 'tips', 'productivity'],
     readTime: 13,
+    emoji: '✨',
   },
   {
     slug: 'ai-video-tools-2026',
@@ -1416,6 +1423,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Guides',
     tags: ['video', 'guide', 'Sora', 'Runway', 'CapCut', 'AI video'],
     readTime: 11,
+    emoji: '🎬',
   },
   {
     slug: 'ai-tools-content-creators',
@@ -1427,6 +1435,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Guides',
     tags: ['content creation', 'YouTube', 'blogging', 'social media', 'workflow'],
     readTime: 10,
+    emoji: '📱',
   },
   {
     slug: 'chatgpt-productivity-tips',
@@ -1438,6 +1447,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Tips',
     tags: ['ChatGPT', 'productivity', 'tips', 'prompts', 'workflow'],
     readTime: 14,
+    emoji: '⚡',
   },
   {
     slug: 'ai-ethics-safety-guide',
@@ -1449,6 +1459,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Guides',
     tags: ['ethics', 'safety', 'privacy', 'copyright', 'AI safety'],
     readTime: 9,
+    emoji: '🛡️',
   },
   {
     slug: 'ai-automation-workflows',
@@ -1460,6 +1471,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Guides',
     tags: ['automation', 'Zapier', 'Make', 'n8n', 'workflow', 'productivity'],
     readTime: 12,
+    emoji: '⚙️',
   },
 ];
 

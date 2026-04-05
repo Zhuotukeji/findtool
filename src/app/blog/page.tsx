@@ -18,6 +18,22 @@ export const metadata = {
   },
 };
 
+// Gradient themes for blog cards - each category gets a unique color scheme
+const gradientThemes = [
+  'from-violet-100 via-purple-50 to-indigo-100',
+  'from-blue-100 via-cyan-50 to-teal-100',
+  'from-rose-100 via-pink-50 to-fuchsia-100',
+  'from-amber-100 via-yellow-50 to-orange-100',
+  'from-emerald-100 via-green-50 to-lime-100',
+  'from-sky-100 via-blue-50 to-indigo-100',
+  'from-fuchsia-100 via-purple-50 to-pink-100',
+  'from-teal-100 via-emerald-50 to-cyan-100',
+  'from-orange-100 via-amber-50 to-red-100',
+  'from-indigo-100 via-violet-50 to-blue-100',
+  'from-pink-100 via-rose-50 to-red-100',
+  'from-cyan-100 via-sky-50 to-blue-100',
+];
+
 export default function BlogPage() {
   const featured = blogPosts[0];
   const rest = blogPosts.slice(1);
@@ -45,8 +61,11 @@ export default function BlogPage() {
           <Link href={`/blog/${featured.slug}`} className="block mb-12 group">
             <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
               <div className="grid grid-cols-1 md:grid-cols-2">
-                <div className="aspect-[16/10] md:aspect-auto bg-gradient-to-br from-violet-100 via-indigo-50 to-purple-100 flex items-center justify-center">
-                  <span className="text-6xl">{featured.emoji || '📝'}</span>
+                <div className={`aspect-[16/10] md:aspect-auto bg-gradient-to-br ${gradientThemes[0]} flex items-center justify-center relative`}>
+                  <span className="text-7xl drop-shadow-sm">{featured.emoji || '📝'}</span>
+                  <span className="absolute top-4 left-4 bg-white/80 backdrop-blur-sm text-xs font-semibold text-violet-600 px-3 py-1 rounded-full uppercase tracking-wider">
+                    {featured.category}
+                  </span>
                 </div>
                 <div className="p-8 md:p-10 flex flex-col justify-center">
                   <span className="text-xs font-semibold text-violet-600 uppercase tracking-wider mb-3">{featured.category}</span>
@@ -65,14 +84,16 @@ export default function BlogPage() {
 
         {/* Other Posts */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {rest.map((post) => (
+          {rest.map((post, index) => (
             <Link key={post.slug} href={`/blog/${post.slug}`} className="group">
               <article className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow h-full flex flex-col">
-                <div className="aspect-[16/9] bg-gradient-to-br from-violet-50 to-indigo-50 flex items-center justify-center">
-                  <span className="text-4xl">{post.emoji || '📝'}</span>
+                <div className={`aspect-[16/9] bg-gradient-to-br ${gradientThemes[(index + 1) % gradientThemes.length]} flex items-center justify-center relative`}>
+                  <span className="text-5xl drop-shadow-sm">{post.emoji || '📝'}</span>
+                  <span className="absolute top-3 left-3 bg-white/80 backdrop-blur-sm text-[10px] font-semibold text-violet-600 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                    {post.category}
+                  </span>
                 </div>
                 <div className="p-6 flex-1 flex flex-col">
-                  <span className="text-xs font-semibold text-violet-600 uppercase tracking-wider mb-2">{post.category}</span>
                   <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-violet-600 transition-colors line-clamp-2">{post.title}</h3>
                   <p className="text-sm text-gray-500 mb-4 line-clamp-2 flex-1">{post.excerpt}</p>
                   <div className="flex items-center gap-3 text-xs text-gray-400">
